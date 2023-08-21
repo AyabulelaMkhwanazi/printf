@@ -1,5 +1,6 @@
 #include "main.h"
 #include <limits.h>
+#include <stdio.h>
 
 /**
  * main - check the code
@@ -8,12 +9,21 @@
 */
 int main(void)
 {
-	int len1;
+	int len;
 	int len2;
-	unsigned int i;
 
-	len1 = printf("Let's print a simple string !");
-	len2 = _printf("Lets's print a simple string !");
+	len = _printf("Let's try to printf a simple sentence.\n");
+	len2 = printf("Let's try to printf a simple sentence.\n");
+	_printf("Length: [%d, %i]\n", len, len2);
+	printf("Length: [%d, %i]\n", len, len2);
+	_printf("String: [%s]\n", "The string !");
+	printf("String: [%s]\n", "The string !");
+	_printf("Percent: [%%]\n");
+	printf("Percent: [%%]\n");
+
+
+
+
 
 	return (0);
 }

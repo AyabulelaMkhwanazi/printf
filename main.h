@@ -1,31 +1,26 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-#include <stdio.h>
 #include <stdarg.h>
 #include <unistd.h>
 
 /**
- * struct spc - struct for specifiers
+ * struct det - struct for specifiers
  *
- * @spc: the specifier
- *
- * @func: pointer to function to execute/print
- * selected specifier
- *
- * Return: nothing.
+ * @det: specifiers
+ * @func: function pointer to the specific specifier
  */
-typedef struct spc
+typedef struct det
 {
-	char *spc;
+	char *det;
 	void (*func)(va_list);
-} spc_t;
+} det_t;
 
 int _printf(const char *format, ...);
-
-void print_char(va_list all);
-void print_str(va_list all);
-void print_perc(va_list all);
+void mod_add(va_list all);
+void str_add(va_list all);
+void mod_add(va_list all);
+void char_add(va_list all);
 int _putchar(char c);
 
 #endif
