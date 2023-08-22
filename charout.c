@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * charout - outputs  g to stdout
+ * charout - outputs g to the console.
  *
  * @g: the character
  *

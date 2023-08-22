@@ -12,12 +12,12 @@ int _printf(const char *format, ...)
 {
 
 	det_t dets[] = {
-		{"c", char_add},
-		{"s", str_add},
-		{"%", mod_add},
-		{"d", int_add},
-		{"i", int_add},
-		{NULL, NULL},
+		{'c', char_add},
+		{'s', str_add},
+		{'%', mod_add},
+		{'d', int_add},
+		{'i', int_add},
+		{'\0', NULL},
 	};
 	int r;
 	int rec = 0;
@@ -33,7 +33,7 @@ int _printf(const char *format, ...)
 		{
 			for (p = 0; dets[p].det; p++)
 			{
-				if (*(format + r + 1) == dets[p].det[0])
+				if (*(format + r + 1) == dets[p].det)
 				{
 					dets[p].func(all);
 					r++;

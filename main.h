@@ -13,7 +13,7 @@
  */
 typedef struct det
 {
-	char *det;
+	char det;
 	int (*func)(va_list);
 } det_t;
 
@@ -23,7 +23,4 @@ int str_add(va_list all);
 int char_add(va_list all);
 int int_add(va_list all);
 int charout(char c);
-
-int int_add(int k);
-
 #endif
