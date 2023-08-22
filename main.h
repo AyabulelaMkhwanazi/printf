@@ -13,14 +13,17 @@
 typedef struct det
 {
 	char *det;
-	void (*func)(va_list);
+	int (*func)(va_list);
 } det_t;
 
 int _printf(const char *format, ...);
-void mod_add(va_list all);
-void str_add(va_list all);
-void mod_add(va_list all);
-void char_add(va_list all);
-int _putchar(char c);
+int mod_add(va_list all);
+int str_add(va_list all);
+int char_add(va_list all);
+int int_add(va_list all);
+int charout(char c);
+
+int print_int(int n);
+int _strlen(char *str);
 
 #endif

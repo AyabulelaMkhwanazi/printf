@@ -9,14 +9,17 @@
  */
 int _printf(const char *format, ...)
 {
+
 	det_t dets[] = {
 		{"c", char_add},
 		{"s", str_add},
 		{"%", mod_add},
+		{"d", int_add},
+		{"i", int_add},
 		{NULL, NULL},
 	};
 	int i;
-	int counter = 0;
+	int rec = 0;
 	int j;
 
 	va_list all;
@@ -33,19 +36,18 @@ int _printf(const char *format, ...)
 				{
 					dets[j].func(all);
 					i++;
-					counter++;
+					rec++;
 					break;
 				}
 			}
 		}
 		else
 		{
-			_putchar(*(format + i));
-			counter++;
+			charout(*(format + i));
+			rec++;
 		}
 	}
 	va_end(all);
-	return (counter);
-
+	return (rec);
 }
 

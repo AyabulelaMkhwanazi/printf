@@ -1,13 +1,13 @@
 #include "main.h"
 
 /**
- * _putchar - writes c to stdout
+ * charout - writes g to stdout
  *
- * @c: the character
+ * @g: the character
  *
  * Return: on success 1.
  */
-int _putchar(char c)
+int charout(char g)
 {
-	return (write(1, &c, 1));
+	return (write(1, &g, 1));
 }
