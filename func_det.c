@@ -1,18 +1,17 @@
 #include "main.h"
 
 /**
- * char_add - function handles the conversion specifier c
- * and writes it to stdout
+ * char_add - function for formatter c
  *
- * @all: variadic list name
+ * @all: variadic argument pointer variable inputted.
  *
- * Return: On success 1.
+ * Return: Number of character outputted.
  */
 int char_add(va_list all)
 {
 	char c = va_arg(all, int);
 
-	write(1, &c, 1);
+	charout(c);
 	return (1);
 }
 
