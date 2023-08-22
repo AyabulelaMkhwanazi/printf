@@ -25,6 +25,5 @@ int int_add(va_list all);
 int charout(char c);
 
 int int_add(int k);
-int _strlen(char *str);
 
 #endif

@@ -16,20 +16,23 @@ int char_add(va_list all)
 }
 
 /**
- * str_add - function handles the conversion specifier s
- * and writes it to stdout
+ * str_add - function for formatter s.
  *
- * @all: variadic list name
+ * @all: variadic argument pointer variable name.
  *
- * Return: On success 1.
+ * Return: Number of chars outputted.
  */
 int str_add(va_list all)
 {
+	int o = 0;
 	char *str = va_arg(all, char *);
-	int len = _strlen(str);
 
-	write(1, str, len);
-	return (len);
+	while (*(str + o) != '\0')
+	{
+		charout(*(str + o));
+		o++;
+	}
+	return (o);
 }
 
 /**
