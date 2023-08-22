@@ -1,13 +1,3 @@
-# PRINTF
-
-> [!IMPORTANT]
-> <sub>This repo is for practicing only !</sub>
-
-**We should create branches for our work and create pull request after each commit so that we can check for bugs before we merge them to the main branch**
-
-- [ ] Handle conversion specifiers
-
-> [!NOTE]
-> <sup>You're free to come up with your branch name</sup>:tada:
-
-the rest shall be discussed ...:speech_balloon:
+Project Description: A project requiring an implementation of the C standard library Printf function.
+Our function will in its current state only handle the following cases: %d, %i, %s, %c, %% and a normally passed string to the function.
+Our function is made up

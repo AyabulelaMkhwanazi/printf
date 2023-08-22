@@ -1,14 +1,15 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+#include <stdio.h>
 #include <stdarg.h>
 #include <unistd.h>
 
 /**
- * struct det - struct for specifiers
+ * struct det - Holds the formatters.
  *
- * @det: specifiers
- * @func: function pointer to the specific specifier
+ * @det: place holders.
+ * @func: function pointer to our add function.
  */
 typedef struct det
 {
@@ -23,7 +24,7 @@ int char_add(va_list all);
 int int_add(va_list all);
 int charout(char c);
 
-int print_int(int n);
+int int_add(int k);
 int _strlen(char *str);
 
 #endif

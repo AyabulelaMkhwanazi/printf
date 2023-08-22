@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
- * charout - writes g to stdout
+ * charout - outputs  g to stdout
  *
  * @g: the character
  *
- * Return: on success 1.
+ * Return: Number of character outputted.
  */
 int charout(char g)
 {
