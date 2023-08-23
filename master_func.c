@@ -1,53 +1,96 @@
-#include "main.h"
+#include <stdlib.h>
+#include <stdio.h>
+#include <stdarg.h>
+#include "plntfheader.h"
 
-/**
- * _printf - Outputs format controlled and normal strings to the console.
- *
- * @format: string with or without formatters.
- * ...: A symbol or denotation of a variadic function.
- *
- * Return: number of characters outputted to the ccnsole.
- */
 int _printf(const char *format, ...)
 {
+	int outs = 0;
+	int memunit = 0;
+	char memstor[1024];
+	va_list arg_scroll;
 
-	det_t dets[] = {
-		{"c", char_add},
-		{"s", str_add},
-		{"%", mod_add},
-		{"d", int_add},
-		{"i", int_add},
-		{NULL, NULL},
-	};
-	int r;
-	int rec = 0;
-	int p;
+	va_start(arg_scroll, format);
 
-	va_list all;
-
-	va_start(all, format);
-
-	for (r = 0; *(format + r) != '\0'; r++)
+	while (*format)
 	{
-		if (*(format + r) == '%')
+		if (*format == '%')
 		{
-			for (p = 0; dets[p].det; p++)
+			format++;
+			if (*format == '%')
 			{
-				if (*(format + r + 1) == dets[p].det[0])
+				memstor[memunit++] = '%';
+				if (memunit == 1024)
 				{
-					dets[p].func(all);
-					r++;
-					rec++;
-					break;
+					outs += memunit;
+					prntadd(memstor, &memunit);
+				}
+			}
+			else if (*format == 'c')
+			{
+				memstor[memunit++] = va_arg(arg_scroll, int);
+				if (memunit == 1024)
+				{
+					outs += memunit;
+					prntadd(memstor, &memunit);
+				}
+			}
+			else if (*format == 's')
+			{
+				char *tempint = va_arg(arg_scroll, char *);
+				while (*tempint)
+				{
+					memstor[memunit++] = *tempint;
+					tempint++;
+					if (memunit == 1024)
+					{
+						outs += memunit;
+						prntadd(memstor, &memunit);
+					}
+				}
+			}
+			else if (*format == 'i' || *format == 'd')
+			{
+				int inpu = va_arg(arg_scroll, int);
+				char *tempinteg = intadd(inpu);
+				if (inpu < 0)
+				{
+					memstor[memunit++] = '-';
+					while (*tempinteg)
+					{
+						memstor[memunit++] = *tempinteg;
+						tempinteg++;
+					}
+				}
+				else
+				{
+					while (*tempinteg)
+					{
+						memstor[memunit++] = *tempinteg;
+						tempinteg++;
+					}
+				}
+				if (memunit == 1024)
+				{
+					outs += memunit;
+					prntadd(memstor, &memunit);
 				}
 			}
 		}
 		else
 		{
-			charout(*(format + r));
-			rec++;
+			memstor[memunit++] = *format;
+			if (memunit == 1024)
+			{
+				outs += memunit;
+				prntadd(memstor, &memunit);
+			}
 		}
+		format++;
 	}
-	va_end(all);
-	return (rec);
+	outs += memunit;
+	prntadd(memstor, &memunit);
+
+	va_end(arg_scroll);
+	return (outs);
 }
