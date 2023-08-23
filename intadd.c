@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "plntfheader.h"
+#include "main..h"
 #include <stdlib.h>
 
 char *intadd(int inpu)

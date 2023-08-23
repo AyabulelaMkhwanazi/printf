@@ -1,5 +1,5 @@
 #include <unistd.h>
-#include "plntfheader.h"
+#include "main.h"
 
 int charadd(char g)
 {

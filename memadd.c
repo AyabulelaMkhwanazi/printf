@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "plntfheader.h"
+#include "main.h"
 
 void prntadd(char memstor[], int *memunit)
 {
